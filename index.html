@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portafolio </title>
+    <link href="css/style.css" rel="stylesheet">
+    
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Adriel Endoqui Paniagua</h1>
+        <p>Programador y Modelador 3D</p>
+        <p>Desarrollador de Servidores Privados</p>
+    </header>
+
+    <main class="portfolio-container">
+        
+        <div id="tabs-container">
+            <div class="tabs-buttons">
+               
+                <button class="tab-link" onclick="openTab(event, 'Habilidad2')">
+                    Proyecto Web
+                </button>
+                <button class="tab-link" onclick="openTab(event, 'Diseño3D')">
+                    Modelado 3D 
+                </button>
+                <button class="tab-link" onclick="openTab(event, 'IA')">
+                    chatbot 
+                </button>
+                <button class="tab-link active" onclick="openTab(event, 'Habilidad1')">
+                    Proyecto Nube
+                </button>
+            </div>
+
+            
+            <div id="Habilidad2" class="tab-content" style="display: none;">
+                <h2>Programación Frontent</h2>
+               <p class="project-summary">
+        Esta sección demuestra mi dominio en el proceso de diseño centrado en el usuario, desde la investigación de flujos de trabajo hasta el prototipo de alta fidelidad. Mi enfoque está en la usabilidad, la accesibilidad y la estética funcional.
+    </p>
+
+    <div class="ux-gallery-grid">
+        
+        <div class="ux-gallery-item">
+            <img src="assets/p1.png" alt="Wireframe de Baja Fidelidad">
+            <p class="ux-caption">Wireframe: Estructura y Flujo de Navegación</p>
+        </div>
+        
+        <div class="ux-gallery-item">
+            <img src="assets/p2.png" alt="Prototipo de Alta Fidelidad Móvil">
+            <p class="ux-caption">Prototipo de Alta Fidelidad (Diseño Visual)</p>
+        </div>
+        
+        <div class="ux-gallery-item">
+            <img src="assets/p3.png" alt="Muestra de Componentes del Sistema">
+            <p class="ux-caption">Snippet de Componentes y Guías de Estilo</p>
+        </div>
+        
+        <div class="ux-gallery-item">
+            <img src="assets/p4.png" alt="Mapa de Calor de Prueba de Usabilidad">
+            <p class="ux-caption">Análisis Post-Pruebas de Usabilidad</p>
+        </div>
+        <div class="ux-gallery-item">
+            <img src="assets/p5.png" alt="Mapa de Calor de Prueba de Usabilidad">
+            <p class="ux-caption">Diseños Organicos y Elegantes</p>
+        </div>
+        <div class="ux-gallery-item">
+            <img src="assets/p6.png" alt="Mapa de Calor de Prueba de Usabilidad">
+            <p class="ux-caption">Contenido Personalizable</p>
+        </div>
+        
+    </div>
+                <a href="mgic/layout.html" class="link-evidence">Ver Proyecto</a>
+            </div>
+
+            <div id="Diseño3D" class="tab-content" style="display: none;">
+                <h2>Modelo 3D</h2>
+                <h2>Casco MJOLNIR MK VI (Jefe Maestro)</h2>
+                <p>Modeo creado en blender y Pintado en 3D Max</p>
+                <p>Este es un modelo crado tomando como referencia del Casco MJOLNIR Mark VI (Jefe Maestro), desarrollado como una pieza de exhibición.</p>
+                <p>La descripción técnica del proceso de creación enfatiza la versatilidad en el flujo de trabajo de modelado 3D.</p>
+                <p>Utilizando Blender como software base para modelar y 3ds Max para asignar materiales y colores, y renderizar.</p>
+                <p>Modelo creado en aproximadamente 16 hrs de trabajo.</p>
+                <div class="viewer-container">
+                    <model-viewer 
+                        src="models/casco.glb"
+                        alt="Mi Modelo 3D de Blender"
+                        shadow-intensity="1"
+                        camera-controls 
+                        auto-rotate 
+                        ar 
+                        class="blender-viewer">
+                        <div slot="progress-bar">Cargando Modelo 3D...</div>
+                    </model-viewer>
+
+                </div>
+
+                <p class="viewer-note">Visualice un modelo 3D exportado desde Blender. Utilice el mouse para rotar, desplazar y hacer zoom en el objeto.</p>
+
+                <div class="ux-gallery-item">
+            <img src="assets/blend.png" alt="Mapa de Calor de Prueba de Usabilidad">
+            <p class="ux-caption">Modelado en Blende</p>
+        </div>
+        <div class="ux-gallery-item">
+            <img src="assets/text.png" alt="Mapa de Calor de Prueba de Usabilidad">
+            <p class="ux-caption">Asignación de Materiales 3DS Max</p>
+        </div>
+        <div class="ux-gallery-item">
+            <img src="assets/img8.jpg" alt="Mapa de Calor de Prueba de Usabilidad">
+            <p class="ux-caption">Render</p>
+        </div>
+
+            </div>
+            
+        </div>
+
+        <div id="IA" class="tab-content" style="display: none;">
+                <h2>Asistente de Consulta Rápida</h2>
+    <p>Pregunta sobre mis habilidades o proyectos (ej: "¿Qué usaste para la Nube?" o "Háblame de Meren").</p>
+    
+    <div class="chatbot-window">
+        <div class="chat-display" id="chat-display">
+            <div class="chat-message bot-message">
+                Hola! Soy un asistente básico. Pregunta sobre mis proyectos o tecnologías.
+            </div>
+        </div>
+        
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí..." autocomplete="off">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+            </div>
+
+            <div id="Habilidad1" class="tab-content active">
+            <h2>Manual Detallado: Implementación de Servidor Multipropósito en Ubuntu Server</h2>
+            <p class="intro-description">
+                Este documento es un manual de operaciones que detalla la instalación, configuración y ejecución de servicios esenciales (Nube, Hosting Web, Streaming y Juegos) en hardware limitado (Intel Core i5, 8 GB RAM), demostrando habilidades en administración de sistemas y optimización de recursos.
+            </p>
+
+            <div class="manual-section">
+                <h3>1. Preparación del Sistema Operativo y Java</h3>
+                
+                <h4>1.1. Actualización y Dependencias</h4>
+                <p>Instalar Ubuntu Server LTS y asegurar la actualización del sistema. Instalar la dependencia Java 17, esencial para el servidor de Minecraft.</p>
+                <pre><code>sudo apt update && sudo apt upgrade -y
+        sudo apt install openjdk-17-jre-headless -y</code></pre>
+
+                <h4>1.2. Instalación de la Pila LAMP (Web Services)</h4>
+                <p>Instalamos los componentes para la Nube y el Hosting Web: Apache, MariaDB y PHP con sus módulos requeridos:</p>
+                <pre><code>sudo apt install apache2 mariadb-server -y
+        sudo apt install php libapache2-mod-php php-gd php-mysql php-curl php-json php-intl php-imagick php-xml php-zip -y
+        </code></pre>
+            </div>
+
+            <div class="manual-section">
+                <h3>2. Nube Privada (Nextcloud) y Hosting Web</h3>
+                
+                <h4>2.1. Configuración de Base de Datos y Nextcloud</h4>
+                <p>Creación de una base de datos dedicada y un usuario en MariaDB. Seguidamente, se descargan los archivos de Nextcloud, se mueven al directorio de Apache (<code>/var/www/</code>) y se ajustan los permisos al usuario <code>www-data</code>.</p>
+                <pre><code># Acceso y configuración de usuario en MariaDB
+        sudo mysql -u root -p
+        # ... comandos SQL ...
+        EXIT;
+        # Mover archivos y permisos
+        sudo mv nextcloud /var/www/
+        sudo chown -R www-data:www-data /var/www/nextcloud/
+        sudo chmod -R 755 /var/www/nextcloud/
+        </code></pre>
+                
+                <h4>2.2. Configuración de Hosting Web Adicional</h4>
+                <p>Configuración de un **Virtual Host** en Apache para alojar otros sitios web y separarlos del alias de Nextcloud.</p>
+                <pre><code>sudo mkdir -p /var/www/misitio.com/html
+        sudo nano /etc/apache2/sites-available/misitio.com.conf
+        # ... (Crear configuración de VirtualHost) ...
+        sudo a2ensite misitio.com.conf
+        sudo systemctl reload apache2</code></pre>
+            </div>
+
+            <div class="manual-section">
+                <h3>3. Servidores de Streaming (Plex y Navidrome)</h3>
+                
+                <h4>3.1. Servidor de Video (Plex Media Server)</h4>
+                <p>Se descarga e instala el paquete DEB de Plex para la gestión de video y fotos.</p>
+                <pre><code># Descarga y instalación del paquete DEB de Plex
+        sudo dpkg -i plexmediaserver*.deb
+        # Ejecución: Acceder a http://[IP_Servidor]:32400/web para configuración inicial.</code></pre>
+
+                <h4>3.2. Servidor de Música (Navidrome)</h4>
+                <p>Instalación del binario de Navidrome y configuración del servicio. Esta solución es ligera y utiliza el protocolo Subsonic.</p>
+                <pre><code># Crear usuario y directorio dedicado
+        sudo useradd -r -m -d /var/lib/navidrome navidrome
+        # Descargar binario, configurar permisos y servicio systemd.
+        # Ejecución: Acceder a http://[IP_Servidor]:4533</code></pre>
+            </div>
+
+            <div class="manual-section">
+                <h3>4. Servidor de Juegos (Minecraft) y Ejecución Persistente</h3>
+                
+                <h4>4.1. Asignación de Recursos y Script de Arranque</h4>
+                <p>El servidor se ejecuta con un usuario dedicado por seguridad. Se asignan 5 GB de RAM para el rendimiento de Minecraft.</p>
+                <pre><code>sudo useradd -r -m -d /opt/minecraft minecraft
+        sudo su - minecraft
+        # Crear script start.sh con la directiva de RAM:
+        java -Xmx5G -Xms5G -jar server.jar nogui</code></pre>
+                
+                <h4>4.2. Ejecución Persistente (Comando Clave)</h4>
+                <p>Utilizamos <strong><code>screen</code></strong> para ejecutar el servidor en segundo plano, asegurando que se mantenga activo después de cerrar la sesión SSH:</p>
+                <pre><code>sudo apt install screen
+        screen -S mc          # Inicia una nueva sesión llamada 'mc'
+        ./start.sh            # Inicia el servidor Minecraft
+        # Para salir y dejarlo activo: Presiona Ctrl + A, luego D
+        </code></pre>
+            </div>
+            
+            <div class="manual-section">
+                <h3>5. Seguridad y Acceso Remoto</h3>
+                <p>La seguridad es fundamental; se configura el firewall UFW para exponer únicamente los puertos necesarios. La ejecución pública requiere redireccionamiento de puertos en el router.</p>
+                <pre><code># Apertura de todos los puertos de servicio
+        sudo ufw allow 22,80,443,25565,32400,4533/tcp
+        sudo ufw enable</code></pre>
+            </div>
+        </div>
+
+     
+
+
+
+    </main>
+    <footer class="main-footer">
+    <div class="footer-content">
+        
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>📧 Email: kaisa.kda.117@outlook.com</p>
+            <p>📞 Teléfono: +52 55 5194-7091</p>
+        </div>
+        <div class="footer-section">
+            <h3>Redes y Enlaces</h3>
+            <p>
+                <a href="https://www.facebook.com/AdrielShirayuki" target="_blank">Facebook</a> |
+                <a href="https://www.instagram.com/shirayukyadriel" target="_blank">Instaghram</a> |
+                <a href="https://youtube.com/@yubei1178?si=i7DDN5SCa0USJA4b" target="_blank">Youtube</a>
+            </p>
+        </div>
+
+        <div class="footer-section copyright">
+            <p>&copy; 2025 Yubei. Todos los derechos reservados.</p>
+        </div>
+
+                </footer>
+    <script src="js/chatbot.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
