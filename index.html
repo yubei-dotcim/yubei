@@ -32,6 +32,9 @@
                 <button class="tab-link active" onclick="openTab(event, 'Habilidad1')">
                     Proyecto Nube
                 </button>
+                <button class="tab-link active" onclick="openTab(event, 'tipos')">
+                    Tipos de servidores Web
+                </button>
             </div>
 
             
@@ -222,11 +225,72 @@
         sudo ufw allow 22,80,443,25565,32400,4533/tcp
         sudo ufw enable</code></pre>
             </div>
+                <div id="tipos" class="tab-content active">
+    <h2>Manual Técnico: Infraestructura y Gestión de Servidores Web</h2>
+    <p class="intro-description">
+        Este documento detalla los fundamentos de la implementación de servidores, desde la selección de componentes físicos y lógicos hasta las metodologías de trabajo para garantizar la disponibilidad y eficiencia de los servicios web.
+    </p>
+
+    <div class="manual-section">
+        <h3>1. Tipos de Servidores Web</h3>
+        <p>Dependiendo de la arquitectura y el objetivo del proyecto, se pueden implementar diferentes tipos de servidores:</p>
+        
+        <h4>1.1. Servidores Compartidos y Dedicados</h4>
+        <p>Los **servidores compartidos** alojan múltiples sitios en una misma máquina física, ideal para proyectos pequeños. Los **servidores dedicados** ofrecen recursos exclusivos para un solo cliente, permitiendo configuraciones personalizadas y alto rendimiento.</p>
+
+        <h4>1.2. Servidores VPS (Virtual Private Server)</h4>
+        <p>Utilizan tecnologías de virtualización para particionar un servidor físico en varios servidores virtuales independientes. Es el equilibrio perfecto entre costo y control.</p>
+        
+        <h4>1.3. Servidores en la Nube (Cloud Hosting)</h4>
+        <p>Basados en infraestructuras distribuidas (AWS, Azure, Google Cloud). Permiten el **escalado dinámico**, donde los recursos aumentan o disminuyen según la demanda de tráfico.</p>
+    </div>
+
+    <div class="manual-section">
+        <h3>2. Hardware: La Base Física</h3>
+        <p>El rendimiento del servidor depende directamente de los componentes físicos seleccionados. Para un entorno estable, se consideran los siguientes estándares:</p>
+        
+        * **Procesador (CPU):** Se recomiendan procesadores con múltiples núcleos (como series Intel Xeon o AMD EPYC) para manejar procesos concurrentes.
+        * **Memoria RAM:** Es crítica para la velocidad de respuesta. Se utiliza memoria **ECC (Error Correction Code)** para prevenir la corrupción de datos.
+        * **Almacenamiento:** Uso de unidades **NVMe o SSD** en configuraciones **RAID** (Redundant Array of Independent Disks) para asegurar que, si un disco falla, el servidor siga operando.
+        * **Conectividad:** Tarjetas de red de alta velocidad (1Gbps o superior) y sistemas de alimentación ininterrumpida (UPS).
+    </div>
+
+    <div class="manual-section">
+        <h3>3. Software: El Entorno Lógico</h3>
+        <p>El software define las capacidades del servidor. La configuración más común es la pila **LAMP** o **LEMP** sobre sistemas Linux.</p>
+        
+        <h4>3.1. Sistema Operativo y Servidor Web</h4>
+        <p>Instalación de Ubuntu Server y configuración de Apache o Nginx como motor de despacho de peticiones:</p>
+        <pre><code># Instalación del servidor web (Apache) y el sistema de base de datos
+sudo apt update
+sudo apt install apache2 mariadb-server -y</code></pre>
+
+        <h4>3.2. Lenguajes de Lado del Servidor</h4>
+        <p>Es necesario instalar módulos que permitan procesar scripts dinámicos, usualmente PHP, Python o Node.js.</p>
+        <pre><code># Ejemplo para instalar PHP y sus dependencias para servidores modernos
+sudo apt install php libapache2-mod-php php-mysql php-xml -y
+sudo systemctl restart apache2</code></pre>
+    </div>
+
+    <div class="manual-section">
+        <h3>4. Formas de Trabajo y Metodologías</h3>
+        <p>La administración profesional de servidores requiere seguir flujos de trabajo que minimicen el tiempo de inactividad (Downtime).</p>
+        
+        <h4>4.1. Gestión Remota (SSH)</h4>
+        <p>Todo el trabajo se realiza de forma segura mediante terminal remota, evitando el uso de interfaces gráficas para ahorrar recursos.</p>
+        <pre><code># Acceso seguro al servidor
+ssh usuario@direccion_ip_servidor</code></pre>
+
+        <h4>4.2. Despliegue Continuo y Automatización</h4>
+        <p>Se utilizan herramientas como **Docker** para contenerizar aplicaciones, asegurando que el software funcione igual en desarrollo que en producción. La automatización se logra con scripts de Bash o herramientas como Ansible.</p>
+
+        <h4>4.3. Monitoreo y Mantenimiento</h4>
+        <p>Implementación de ciclos de respaldo (backups) y monitoreo de logs para detectar intentos de intrusión o fallos de hardware antes de que afecten al usuario final.</p>
+    </div>
+</div>
         </div>
 
-        </div>
-                <a href="mgic/layout.html" class="link-evidence">Ver Proyecto</a>
-            </div>   
+         
 
 
 
