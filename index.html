@@ -38,6 +38,9 @@
                 <button class="tab-link active" onclick="openTab(event, 'Habilidad5')">
                     Hosting Web
                 </button>
+                <button class="tab-link active" onclick="openTab(event, 'Habilidad6')">
+                    FTP
+                </button>
             </div>
 
             
@@ -352,6 +355,60 @@ git push origin main</code></pre>
         <h4>4.2. Hardening del Servidor</h4>
         <p>Proceso de asegurar el sistema eliminando servicios innecesarios, cerrando puertos no utilizados y configurando firewalls para prevenir ataques de denegación de servicio (DDoS).</p>
     </div>
+        <div id="Habilidad6" class="tab-content">
+    <h2>Manual Técnico: Gestión de Activos mediante FileZilla</h2>
+    <p class="intro-description">
+        FileZilla es una herramienta fundamental de software libre que permite la transferencia de archivos entre un equipo local (como tu Dell Vostro) y un servidor remoto. Este manual detalla la configuración de entornos seguros y el flujo de trabajo para el despliegue de proyectos web.
+    </p>
+
+    <div class="manual-section">
+        <h3>1. Configuración de Entorno y Conexión Segura</h3>
+        <p>Para garantizar la integridad de los datos de <strong>AKcondor Studios</strong>, es imperativo utilizar protocolos cifrados durante la sesión:</p>
+        
+        <ul>
+            <li><strong>Protocolo SFTP:</strong> A diferencia del FTP estándar, el SFTP (SSH File Transfer Protocol) cifra tanto los comandos como los datos, evitando la intercepción de contraseñas.</li>
+            <li><strong>Parámetros de Host:</strong> Se debe especificar la dirección IP o el nombre de dominio del servidor, junto con el puerto <code>22</code> (estándar para SSH/SFTP).</li>
+            <li><strong>Gestor de Sitios:</strong> Se recomienda almacenar las credenciales en el "Gestor de Sitios" para evitar errores de escritura y facilitar el acceso recurrente.</li>
+        </ul>
+    </div>
+
+    <div class="manual-section">
+        <h3>2. Interfaz de Usuario y Flujo de Trabajo</h3>
+        <p>La arquitectura de FileZilla se divide en contenedores lógicos que facilitan la administración de archivos:</p>
+        
+        <h4>2.1. Panel Local vs. Panel Remoto</h4>
+        <p>El lado izquierdo representa tu sistema de archivos local, mientras que el derecho muestra la estructura del servidor (por ejemplo, el directorio <code>/var/www/html</code> en un entorno Linux).</p>
+
+        <h4>2.2. Transferencia Sincrónica</h4>
+        <p>El despliegue se realiza mediante el método de "Arrastrar y Soltar". FileZilla gestiona una cola de transferencia en la parte inferior, indicando el progreso y el estado de cada paquete de datos enviado.</p>
+        
+        
+    </div>
+
+    <div class="manual-section">
+        <h3>3. Edición en Tiempo Real y Permisos (CHMOD)</h3>
+        <p>FileZilla permite interactuar con el servidor de forma avanzada sin necesidad de descargar archivos manualmente:</p>
+        
+        <h4>3.1. Edición Directa</h4>
+        <p>Mediante la opción "Ver/Editar", el software descarga una copia temporal al editor de código configurado. Al guardar los cambios localmente, FileZilla detecta la modificación y ofrece la subida automática al servidor, agilizando el mantenimiento de la web.</p>
+
+        <h4>3.2. Gestión de Atributos</h4>
+        <p>Es vital configurar correctamente los permisos de archivos para prevenir brechas de seguridad:</p>
+        <pre><code># Permisos recomendados para entornos web
+Directorios: 755 (Lectura/Ejecución pública, Escritura de dueño)
+Archivos: 644 (Lectura pública, Escritura de dueño)</code></pre>
+    </div>
+
+    <div class="manual-section">
+        <h3>4. Diagnóstico de Conexiones</h3>
+        <p>El log de mensajes superior es crítico para identificar fallos en el despliegue:</p>
+        <ul>
+            <li><strong>Error de Tiempo Agotado:</strong> Generalmente causado por un firewall bloqueando el puerto o una conexión inestable.</li>
+            <li><strong>Error Crítico (Autenticación):</strong> Indica que las llaves SSH o la contraseña del usuario no coinciden con los registros del servidor.</li>
+            <li><strong>Fallo de Transferencia:</strong> Sucede cuando la cuota de disco del hosting está llena o no se tienen permisos de escritura en la carpeta destino.</li>
+        </ul>
+    </div>
+</div>
     </div>
 
          
