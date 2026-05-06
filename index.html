@@ -41,6 +41,9 @@
                 <button class="tab-link active" onclick="openTab(event, 'Habilidad6')">
                     FTP
                 </button>
+                <button class="tab-link active" onclick="openTab(event, 'Habilidad7')">
+                    Dominios
+                </button>
             </div>
 
             
@@ -412,7 +415,85 @@ Archivos: 644 (Lectura pública, Escritura de dueño)</code></pre>
 </div>
 
     </div>
+<div id="Habilidad7" class="tab-content active">
+    <h2>Arquitectura de Identidad Digital: Dominios y Subdominios</h2>
+    <p class="intro-description">
+        El Sistema de Nombres de Dominio (DNS) es la infraestructura jerárquica que permite organizar la presencia de un sitio en internet, traduciendo la complejidad técnica de las direcciones IP en identidades memorables y funcionales.
+    </p>
 
+    <div class="manual-section">
+        <h3>1. El Dominio: Identidad Principal</h3>
+        <p>Es el nombre único que identifica a un proyecto en la red. Actúa como la piedra angular que valida la marca y su propiedad en el ecosistema digital.</p>
+        
+        <h4>1.1. Estructura del Dominio</h4>
+        <p>Se compone de dos partes fundamentales que definen el alcance y la categoría del sitio:</p>
+        <ul>
+            <li><strong>Nombre de dominio:</strong> La palabra personalizada que define la marca (ej. <code>google</code>, <code>apple</code> o <code>akcondor</code>).</li>
+            <li><strong>Extensión o TLD (Top-Level Domain):</strong> El sufijo que indica la naturaleza del sitio, ya sea global (<code>.com</code>, <code>.org</code>) o territorial (<code>.mx</code>, <code>.es</code>).</li>
+        </ul>
+        <div style="background: #1a1a1a; padding: 10px; border-radius: 4px; border-left: 3px solid #ff003c; font-family: monospace; color: #00e5ff; margin-top: 10px;">
+            Ejemplo de estructura: [nombre].[extensión] -> <strong>ejemplo.com</strong>
+        </div>
+    </div>
+
+    
+
+    <div class="manual-section">
+        <h3>2. Subdominios: Organización y Escalabilidad</h3>
+        <p>Es una extensión que precede al dominio principal, separada por un punto. Funciona como una sección independiente dentro del mismo ecosistema para organizar contenidos específicos.</p>
+        
+        <h4>2.1. Funcionalidad Técnica</h4>
+        <p>En la configuración del servidor, el subdominio generalmente sustituye al prefijo estándar <code>www</code>, permitiendo segmentar servicios sin necesidad de adquirir nuevos dominios adicionales.</p>
+
+        <h4>2.2. Usos Comunes en Desarrollo</h4>
+        <p>La segmentación por subdominios es vital para la gestión técnica y el crecimiento de la infraestructura:</p>
+        <ul>
+            <li><strong>Tiendas Online:</strong> <code>tienda.ejemplo.com</code></li>
+            <li><strong>Plataformas de Soporte:</strong> <code>soporte.google.com</code></li>
+            <li><strong>Entornos de Pruebas:</strong> <code>dev.proyectos.com</code></li>
+            <li><strong>Localización:</strong> Versiones en distintos idiomas como <code>es.wikipedia.org</code></li>
+        </ul>
+    </div>
+
+    <div class="manual-section">
+        <h3>3. Conclusión: El Equilibrio entre Marca y Orden</h3>
+        <p>Comprender esta jerarquía es vital no solo para la gestión técnica, sino también para el posicionamiento estratégico, permitiendo que un proyecto crezca de forma ordenada, funcional y profesional ante el usuario global.</p>
+        
+        <div style="margin-top: 15px; padding: 15px; background: rgba(255, 0, 60, 0.05); border: 1px dashed #ff003c; border-radius: 8px;">
+            <p style="margin: 0; font-style: italic; font-size: 0.95em;">
+                "Mientras que el dominio actúa como la piedra angular que valida la marca, los subdominios ofrecen la flexibilidad necesaria para segmentar servicios sin perder la conexión con el núcleo principal."
+            </p>
+        </div>
+    </div>
+
+    <div class="manual-section">
+        <h3>4. Configuración de Subdominio de Retorno</h3>
+        <p>Para cerrar el ciclo de navegación, se implementa un subdominio lógico que permite el flujo directo hacia la raíz del servidor o página de inicio.</p>
+        
+        <pre><code># Simulación de registro CNAME para navegación
+# Host: home | Target: akcondor.github.io | TTL: 300
+home.akcondor.com -> REDIRECT -> index.html</code></pre>
+
+        <div style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
+            <a href="index.html" style="
+                text-decoration: none; 
+                color: #ff003c; 
+                border: 1px solid #ff003c; 
+                padding: 12px 30px; 
+                border-radius: 5px; 
+                font-family: 'Courier New', Courier, monospace;
+                text-transform: uppercase;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                background: rgba(255, 0, 60, 0.05);
+                box-shadow: 0 0 15px rgba(255, 0, 60, 0.1);
+            " onmouseover="this.style.background='#ff003c'; this.style.color='#ffffff'; this.style.boxShadow='0 0 20px #ff003c';" 
+               onmouseout="this.style.background='rgba(255, 0, 60, 0.05)'; this.style.color='#ff003c'; this.style.boxShadow='0 0 15px rgba(255, 0, 60, 0.1)';">
+                // root@akcondor:~$ cd .. /home
+            </a>
+        </div>
+    </div>
+</div>
          
 
 
