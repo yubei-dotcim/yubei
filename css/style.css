@@ -333,3 +333,61 @@ pre code {
 }
 
 
+.comments-section {
+    margin-top: 30px;
+    text-align: left;
+    border-top: 1px dashed #333;
+    padding-top: 20px;
+}
+
+.comments-section h4 {
+    color: #e7009aff;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.comments-container {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #050505;
+    padding: 10px;
+    border: 1px solid #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.comment-item {
+    border-bottom: 1px solid #222;
+    padding: 8px 0;
+}
+
+.comment-user {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.85em;
+    display: block;
+}
+
+.comment-body {
+    color: #bbb;
+    font-size: 0.85em;
+}
+
+#comment-text {
+    width: 100%;
+    background: #000;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 60px;
+    font-family: sans-serif;
+}
+
+#comment-text:focus {
+    outline: none;
+    border-color: #e7009aff;
+}
+
