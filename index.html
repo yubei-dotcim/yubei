@@ -44,6 +44,9 @@
                 <button class="tab-link active" onclick="openTab(event, 'Habilidad7')">
                     Dominios
                 </button>
+                 <button class="tab-link active" onclick="openTab(event, 'Descargas')">
+                    Descargas
+                </button>
             </div>
 
             
@@ -493,6 +496,33 @@ home.akcondor.com -> REDIRECT -> index.html</code></pre>
             </a>
         </div>
     </div>
+<div id="Descargas" class="tab-content" style="display: none;">
+            <h2 style="text-align: center;">Zona de Despliegue APK</h2>
+            <p style="text-align: center; color: #888;">Acceso restringido para testers autorizados de AKcondor Studios.</p>
+
+            <div class="manual-section" id="auth-container" style="max-width: 450px; margin: 30px auto; border: 1px solid #5c0000;">
+                <div id="auth-form-box">
+                    <h3 id="auth-title" style="color: #e7009aff; text-align: center;">INICIAR SESIÓN</h3>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+                        <input type="text" id="auth-name" placeholder="NOMBRE COMPLETO" style="display:none; padding: 10px; background: #000; border: 1px solid #333; color: #fff;">
+                        <input type="email" id="auth-email" placeholder="CORREO" style="padding: 10px; background: #000; border: 1px solid #333; color: #fff;">
+                        <input type="password" id="auth-pass" placeholder="CONTRASEÑA" style="padding: 10px; background: #000; border: 1px solid #333; color: #fff;">
+                        <button onclick="handleAuth()" class="link-evidence" style="border: none; cursor: pointer; padding: 12px;">VALIDAR ACCESO</button>
+                        <a href="javascript:void(0)" onclick="toggleAuthMode()" id="auth-toggle" style="font-size: 0.8em; color: #888; text-align: center; text-decoration: none;">¿Eres nuevo? Regístrate aquí</a>
+                    </div>
+                </div>
+
+                <div id="user-logged-box" style="display: none; text-align: center;">
+                    <h3 style="color: #e7009aff;">ACCESO CONCEDIDO</h3>
+                    <div style="background: #0d0d0d; padding: 20px; border-radius: 4px;">
+                        <span id="user-name-display" style="font-family: 'Times New Roman', serif; font-size: 1.3em; color: #fff;">USUARIO</span>
+                        <hr style="border: 0; border-top: 1px solid #333; margin: 15px 0;">
+                        <a href="descargas/alone.apk" class="link-evidence" style="display: block; text-decoration: none; font-weight: bold; margin-bottom: 20px;">DESCARGAR APK OFICIAL</a>
+                        <button onclick="location.reload()" style="background: transparent; border: 1px solid #5c0000; color: #888; cursor: pointer; padding: 5px;">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+    
 </div>
          
 
@@ -521,6 +551,46 @@ home.akcondor.com -> REDIRECT -> index.html</code></pre>
         </div>
 
                 </footer>
+    <script>
+    // Lógica de Pestañas (Incluye la nueva de Descargas)
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Lógica de Autenticación
+    let isLoggingIn = true;
+    function toggleAuthMode() {
+        isLoggingIn = !isLoggingIn;
+        document.getElementById('auth-title').innerText = isLoggingIn ? 'INICIAR SESIÓN' : 'REGISTRO DE TESTER';
+        document.getElementById('auth-name').style.display = isLoggingIn ? 'none' : 'block';
+        document.getElementById('auth-toggle').innerText = isLoggingIn ? '¿Eres nuevo? Regístrate aquí' : '¿Ya tienes cuenta? Inicia sesión';
+    }
+
+    function handleAuth() {
+        const formData = new FormData();
+        formData.append('action', isLoggingIn ? 'login' : 'register');
+        formData.append('nombre', document.getElementById('auth-name').value);
+        formData.append('email', document.getElementById('auth-email').value);
+        formData.append('password', document.getElementById('auth-pass').value);
+
+        fetch('auth.php', { method: 'POST', body: formData })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('auth-form-box').style.display = 'none';
+                document.getElementById('user-logged-box').style.display = 'block';
+                document.getElementById('user-name-display').innerText = data.user_name.toUpperCase();
+            } else { alert("ERROR: " + data.msg); }
+        })
+        .catch(err => alert("Error de conexión con auth.php"));
+    }
+</script>
     <script src="js/chatbot.js"></script>
     <script src="js/script.js"></script>
 </body>
